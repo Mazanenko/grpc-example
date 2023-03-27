@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+
+option java_multiple_files = true;
+option java_package = "com.example.grpcservice.grpc.lib";
+option java_outer_classname = "HelloWorldProto";
+
+package com.example.grpcservice.grpc;
+
+message HelloRequest {
+  string name = 1;
+  }
+
+message HelloReply {
+  string message = 1;
+  google.protobuf.Timestamp timestamp = 2;
+
+  }
+
+service MyService {
+  rpc SayHello (HelloRequest) returns (HelloReply) {}
+}
+
+service MyServiceStream {
+
+}
